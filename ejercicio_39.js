@@ -11,13 +11,12 @@ Ejemplo:
 
 */
 
-const numDivisible=(num)=>{
-
-    return num
-
-}
-console.log(numDivisible(6,1,3));
-console.log(numDivisible(12,2));
-console.log(numDivisible(100,5,4,10,25,20));
-
-
+const divisibleBy = (n, ...args) => {
+    if (args.length === 0) return true;
+    return args.every((arg) => n % arg === 0);
+    }
+    console.log(divisibleBy(6,1,3));
+    console.log(divisibleBy(12,2));
+    console.log(divisibleBy(100,5,4,10,25,20));
+    console.log(divisibleBy(12,7));
+    
