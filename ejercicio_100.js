@@ -11,6 +11,8 @@ const sumArr=(arrOne,arrTwo)=>{
 
     return arrOne.map((item,index)=>item+arrTwo[index])
 
+    
+
 }
 
 console.log(sumArr([1, 2, 3] , [4, 5, 6]));
