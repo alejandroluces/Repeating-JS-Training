@@ -11,7 +11,7 @@ const valMax = (arr) =>{
     // return Math.max(...arr)
     return arr.reduce ((acc,el,index)=>{return{
         
-        maximo: Math.max(...arr), index
+        maximo: Math.max(...arr), indice:index
     }})
 }
 
