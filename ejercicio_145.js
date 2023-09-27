@@ -15,7 +15,10 @@ const nameAge = [
 ]
 const peopleAge = (arr) =>{
 
-    return arr.map ((item,index) =>item.edad).reduce((acc,el,ind)=>acc+el)
+    // return arr.map ((item,index) =>item.edad).reduce((acc,el,ind)=>acc+el)
+    return arr.reduce ((acc,el,index)=> {return{
+        sumaEdad: arr.map((item)=>item.edad).reduce ((a,b)=>a+b) , indice: index =0
+    }})
 
 }
 
