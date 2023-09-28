@@ -13,4 +13,4 @@ const sumMatr = (arrNum) =>{
 
 }
 
-console.log(sumMatr([[2, 3, 4], [1, 2, 3], [5, 6, 7]]));
+console.log(sumMatr([[2, 3, 4], [1, 2, 3], [5, 6, 7],[5, 6, 7]]));
