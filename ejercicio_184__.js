@@ -12,16 +12,19 @@ const peopleAge = [
     {nombre: "Carlos", edad: 35}
 ]
 const conditionAge = 28
-const findFirshPeople = (people,age) =>{
 
-    return people.find((item,index)=>item.edad>age?item.indiceArrayExterno=index:false)
 
-    // return people.find((item,index)=>{
-    //     if(item.edad>age) {
-    //         item.indiceArrayExterno=index
+const findPeople = (nameAge, ageMin) =>{
+
+    return nameAge.find((item,index) => item.edad>ageMin ? item.indiceArrayExterno = index : false)
+    // return nameAge.find((item,index)=>{
+    //     if (item.edad>ageMin) {
+    //         item.indiceArrayExterno = index
     //         return item
-    //     }
-    // })
+    //     }})
 }
 
-console.log(findFirshPeople(peopleAge,conditionAge));
+console.log(findPeople(peopleAge,conditionAge));
+
+
+
