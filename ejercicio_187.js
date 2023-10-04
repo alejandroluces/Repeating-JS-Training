@@ -7,14 +7,16 @@ Entrada: [["manzana", "plátano"], ["sandía", "fresa"], ["uva", "naranja"]] y l
 Salida: {palabra: "manzana", indiceArrayExterno: 0, indiceArrayInterno: 0}
 */
 
+
+
 const searchWords = (fruit, longitud) =>{
 
-    return fruit.map((item,index) =>{return{
-        palabra: item.find((itemF)=>itemF.length=== longitud) ,  
-        indiceArrayExterno: index,
-        indiceArrayInterno: item.findIndex((item)=>item.length===longitud)
-    }}).find((item)=>item.palabra !==undefined)
+   return fruit.map((item,index) =>{return{
+    palabra: item.find((item) => item.length === longitud),
+    indiceArrayExterno: index,
+    indiceArrayInterno: item.findIndex((item)=>item.length=== longitud)
+   }}).find((item) => item.palabra !==undefined)
 
 }
 
-console.log(searchWords([["manzana", "plátano"], ["sandía", "fresa"], ["uva", "naranja"]], 7));
+console.log(searchWords([["manzana", "plátano"], ["sandía", "fresa"], ["uva", "naranja"]], 5));

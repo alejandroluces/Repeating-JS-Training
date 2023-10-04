@@ -8,14 +8,16 @@ Salida: {numeroMayor: 6, indiceArrayExterno: 1, indiceArrayInterno: 2}
 */
 
 
+const findFirshNumber = (arrNumbers,valMin) =>{
 
-const findFirshNumber = (arrNum,numMin) =>{
+    return arrNumbers.map((item,index) => {return{
+        numeroMayor: item.find((item) =>  item>valMin ),
+        indiceArrayExterno: index,
+        indiceArrayInterno: item.findIndex((item) => item>valMin)
+    }}).find((item) =>  item.numeroMayor !== undefined)
 
-    return arrNum.map((item,index)=>{return{
-        numeroMayor: item.find((item)=>item>numMin),  indiceArrayExterno:index ,
-        indiceArrayInterno: item.findIndex((item,index)=>item>numMin) 
-    }}).find((item)=>item.numeroMayor)
 
 }
 
-console.log(findFirshNumber([[1, 3, 5], [2, 4, 6], [7, 9, 11]],10));
+
+console.log(findFirshNumber([[1, 6, 5], [2, 4, 6], [7, 9, 11]],0));

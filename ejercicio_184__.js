@@ -6,25 +6,21 @@ Encontrar el primer objeto en una matriz de objetos que cumple con ciertos
 Entrada: [{nombre: "Juan", edad: 30}, {nombre: "María", edad: 25}, {nombre: "Carlos", edad: 35}] (encontrar la primera persona mayor de 28 años)
 Salida: {nombre: "Juan", edad: 30, indiceArrayExterno: 0}
 */
-const peopleAge = [
+
+const personAndAge =[
     {nombre: "Juan", edad: 30}, 
     {nombre: "María", edad: 25}, 
     {nombre: "Carlos", edad: 35}
 ]
-const conditionAge = 28
 
+const ageRequested = 28
 
-const findPeople = (nameAge, ageMin) =>{
-
-    return nameAge.find((item,index) => item.edad>ageMin ? item.indiceArrayExterno = index : false)
-    // return nameAge.find((item,index)=>{
-    //     if (item.edad>ageMin) {
-    //         item.indiceArrayExterno = index
-    //         return item
-    //     }})
+const searchPeople = (personAge, ageMin) =>{
+    return personAge.find((item,index) => item.edad>ageMin ? item.indiceArrayExterno = index : false)
 }
 
-console.log(findPeople(peopleAge,conditionAge));
+console.log(searchPeople(personAndAge,ageRequested));
+
 
 
 

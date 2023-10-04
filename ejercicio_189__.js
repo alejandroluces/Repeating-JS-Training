@@ -14,17 +14,19 @@ const personProf =[
 ]
 const findProfetion= "Doctor"
 
+
+
 const findDoctor = (person, find) =>{
 
-    // return person.find((item,index)=>{
+//   return person.find((item,index)=>item.ocupacion==="Doctor" ? item.indiceArrayExterno = index :false)
+    return person.find((item,index)=>{
+        if (item.ocupacion === "Doctor") {
 
-    //     if(item.ocupacion === find){
-    //         item.indiceArrayExterno = index;
-    //         return item;
-    //     }
-    // })
-
-    return person.find((item,index)=>item.ocupacion===find? item.indiceArrayExterno=index : false)
+            item.indiceArrayExterno = index
+            return item
+            
+        }
+    })
 
 }
 
