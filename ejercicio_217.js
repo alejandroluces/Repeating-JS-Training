@@ -17,7 +17,7 @@ const listPushar= [
 const selectHomeworkOk = (list) =>{
 
     return list.map((item,idex) => {
-        if (item.completada) {
+        if (item.completada===true) {
 
             return `${idex+1}. [x] ${item.tarea}`
         }
