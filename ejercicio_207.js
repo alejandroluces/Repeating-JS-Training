@@ -1,21 +1,19 @@
 /*
-Ejercicio 208
-Eliminar un objeto específico de un array de objetos y
- devolver el objeto eliminado junto con el nuevo array:
-
-Entrada: [{nombre: "Juan"}, {nombre: "María"}, {nombre: "Carlos"}] y objeto a eliminar {nombre: "María"}
-Salida: Objeto eliminado: {nombre: "María"}, Nuevo array: [{nombre: "Juan"}, {nombre: "Carlos"}]
-
+Ejercicio 207
+Eliminar varios elementos al final de un array de números y 
+devolver los elementos eliminados junto con el nuevo array:
+Entrada: [1, 2, 3, 4, 5] y cantidad a eliminar 3
+Salida: Elementos eliminados: [3, 4, 5], Nuevo array: [1, 2]
 */
 
-const deletteObj = (arr, objs) => {
 
-    let newArr= arr.filter((item)=>item.nombre !== objs.nombre)
-   {return{
-    Nuevoarray: newArr,
-    Objetoeliminado:
+let array = [1, 2, 3, 4, 5];
+let cantidad = 3;
+const deleteLastElements = (arr, cant) => {
 
-   }}
+   let deleteNum= arr.slice(0,-cant)
+   return `Elementos eliminados: ${arr.splice(-cant)}, Nuevo array: ${deleteNum}`
+
 }
 
-console.log(deletteObj([{nombre: "Juan"}, {nombre: "Maria"}, {nombre: "Carlos"}], {nombre: "Maria"}));
+console.log(deleteLastElements(array,cantidad));
