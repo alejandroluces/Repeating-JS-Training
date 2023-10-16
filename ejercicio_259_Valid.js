@@ -11,6 +11,7 @@ const validateNum = (arr,fn) =>{
 
 
     // return arr.map(fn).includes(false) ? false : true;
+    
     return arr.map(fn).includes(false) ? false : true
 
 }
