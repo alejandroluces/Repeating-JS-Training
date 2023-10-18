@@ -16,3 +16,9 @@ const listBlog = {
         palabrasClave: ["JavaScript", "blog", "tutorial", "JavaScript"] 
     }
 
+const newSetPalabraClave = (obj) =>{
+    let obtnerUltimallave = Object.values(obj)[2]
+    return new Set(obtnerUltimallave)
+}
+
+console.log(newSetPalabraClave(listBlog));
