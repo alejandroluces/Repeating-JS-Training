@@ -23,3 +23,10 @@ const compra=[
 
 ]
 
+const calculateBuy = (arrrObj) =>{
+
+    return arrrObj.map((item) => item.price*item.qty).reduce((a,b) => a+b)
+
+}
+console.log(calculateBuy(compra));
+
