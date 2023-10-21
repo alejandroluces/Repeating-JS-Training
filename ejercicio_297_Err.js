@@ -11,12 +11,19 @@ const stringArticle = "Camiseta ($20, Ropa), Zapatos ($50, Calzado), Sombrero ($
 
 const createArrObj = (str) =>{
 
-    let separteStr = str.replace(/[()]/g, "").split(" ")
-    separteStr
-    return separteStr.map((item,index) => {return{
-        nombre: item
-        // precio: Array.from(item).join("").slice(2)
-        
+    let separteStr = str.replace(/[(,)]/g, "").split(" ")
+   
+    let dividArr = separteStr.length/3
+  
+    let arrBetwinthreeOne= separteStr.splice(0,dividArr)
+   
+    let arrBetwinthreeTwo= separteStr.splice(0,dividArr)
+    
+    let arrBetwinthreeThree= separteStr.splice(0,dividArr)
+   
+    let arrMerch= [arrBetwinthreeOne,arrBetwinthreeTwo,arrBetwinthreeThree]
+    return arrMerch.map((item) =>{return{
+        nombre: item[0], precio: item[1], categoria: item[2]
     }})
 }
 
