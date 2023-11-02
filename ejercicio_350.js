@@ -15,7 +15,7 @@ console.log(wrapped)
   "*******\n*socks*\n*******"
 ] */
 
-const gifts = ['cat', 'game', 'socks']
+const gifts = ['cat', 'game', 'socks',"saraLu"]
 const wraping = (gifts) =>{
 
     return gifts.map((item)=>`${"*".repeat(item.length+2)+"\n*"+item+"*\n"+"*".repeat(item.length+2)}`)
