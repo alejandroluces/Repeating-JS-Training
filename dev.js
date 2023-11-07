@@ -144,3 +144,367 @@ const createArrObj = (str) =>{
     }}).filter((item)=> item.nombre!==undefined)
 }
 console.log(createArrObj(strPerson));
+
+
+/*
+Encontrar el primer nombre con más de cierta cantidad de caracteres:
+// Planteamiento: Escribe una función que tome un array de nombres y una longitud mínima como entrada,
+ y devuelva el primer nombre en el array que tenga más caracteres que la longitud mínima.
+
+// Entrada: ["Alice", "Bob", "Charlie", "David", "Eve"], Longitud mínima: 6
+// Retorno: "Charlie"
+*/
+
+const arraNames = ["Alice", "Bob", "Charlie", "David", "Eve","alejandro"]
+
+const longitud = 6
+
+const extrarNamesLongitudMin = (arr,longer) =>{
+
+    return arr.find((item) => item.length > longer)
+
+}
+
+console.log(extrarNamesLongitudMin(arraNames,longitud));
+
+
+/*
+escribir una funcion que reciba un array de animales como parametros y una letra, debe devolver en 
+un nuevo array los animales que comiencen con esa letra especifica
+
+// entrada: ["oso", "aguila", "alcabaran", "pollo"], "a"
+
+// salida: [ 'aguila', 'alcabaran' ]
+*/
+
+const searchAnimals = (arr,letter) =>{
+
+    return arr.filter((item)=>item[0].toLowerCase() ===letter)
+
+}
+
+console.log(searchAnimals(["oso", "Aguila", "alcabaran", "pollo"], "a"));
+
+
+
+/*
+//Este kata toma estrictamente dos palabras con un espacio entre ellas.
+
+//La salida debe ser dos letras mayúsculas con un punto separándolas.
+// entrada: "Jose Saavedra"
+// salida: J.S
+*/
+
+const initialNames = (str) =>{
+
+    return str.split(" ").map((item) => item[0]).join(".")
+}
+
+console.log(initialNames("Jose Saavedra"));
+
+
+/*
+Queremos saber el índice de las vocales en una palabra dada, por ejemplo, hay dos vocales en la palabra super (la segunda y cuarta letras).
+
+// Entonces, dada una cadena "super", deberíamos devolver una lista de [2, 4].
+
+// Some examples:
+// Mmmm  => []
+// Super => [2,4]
+// Apple => [1,5]
+// YoMama -> [1,2,4,6]
+// NOTAS
+// Las vocales en este contexto se refieren a: aeiouy (incluidas las mayúsculas)
+// Esto está indexado desde [1..n](¡no indexado a cero!)Queremos saber el índice de las vocales en una palabra dada, por ejemplo, hay dos vocales en la palabra super (la segunda y cuarta letras).
+
+// Entonces, dada una cadena "super", deberíamos devolver una lista de [2, 4].
+
+// Some examples:
+// Mmmm  => []
+// Super => [2,4]
+// Apple => [1,5]
+// YoMama -> [1,2,4,6]
+// NOTAS
+// Las vocales en este contexto se refieren a: aeiouy (incluidas las mayúsculas)
+// Esto está indexado desde [1..n](¡no indexado a cero!)
+*/
+
+const  searchIndex = (str) =>{
+
+    return str.split("").map((item, index) => {
+        return item.match(/[aeiouy]/gi) ? index+1 : item
+    } ).filter((iteNum) => typeof(iteNum) === "number")
+
+}
+
+console.log(searchIndex("Super"));
+console.log(searchIndex("YoMama"));
+
+/*
+// Complete la función de suma cuadrada para que cuadre cada número que se le pasa y luego sume los resultados.
+
+// Por ejemplo, [1, 2, 2] debería regresar 9 porque
+// 1
+// 2
+// +
+// 2
+// 2
+// +
+// 2
+// 2
+// =
+// 9
+*/
+
+const sumNumbersSquared = (arrNumbers) =>{
+
+    return arrNumbers.map((item) => item**2).reduce((acc,ac) => acc + ac , 0)
+
+}
+
+console.log(sumNumbersSquared([1, 2, 2]));
+
+
+
+/*
+// Deben incluirse todos los caracteres que no sean vocales, 
+incluidos los caracteres no alfabéticos (espacios, comas, etc.).
+
+// Ejemplos:
+// vowelOne( "abceios" ) // "1001110"
+// vowelOne( "aeiou, abc" ) // "1111100100"
+*/
+
+// replace(/[(,)]/g, "")
+const vowelOne = (str) =>{
+
+    return str.split("").map((item) =>item.replace(/[aeiou]/g, "") ? 0 : 1).join("") 
+}
+console.log(vowelOne("abceios"));
+
+
+
+/*
+
+/ Dada una serie de números, verifique si alguno de los números es el código de caracteres para vocales minúsculas ( a, e, i, o, u).
+
+// Si es así, cambie el valor de la matriz a una cadena de esa vocal.
+
+// Devuelve la matriz resultante.
+ */
+// entrada: [101, 121, 110, 113, 113, 103, 121, 121, 101, 107, 103]
+
+// salida: [
+//     'e', 121, 110, 113,
+//     113, 103, 121, 121,
+//     'e', 107, 103
+//   ]
+
+const isVow = ( a) =>{
+    
+    return a.map((item) => String.fromCharCode(item).replace(/[^aeiou]/g, "") ? String.fromCharCode(item):item )
+
+}
+
+console.log(isVow([101, 121, 110, 113, 113, 103, 121, 121, 101, 107, 103]));
+
+
+/*
+// Dadas dos matrices, a1 y a2, ordene los elementos de a2 según el índice de la palabra en a1 que comienza con la misma letra.
+
+// Ejemplo 1
+// a1 = ['giraffe', 'orangutan', 'impala', 'elephant', 'rhino']
+// a2 = ['rattlesnake', 'eagle', 'geko', 'iguana', 'octopus']
+
+// returns ['geko', 'octopus', 'iguana', 'eagle', 'rattlesnake']
+
+// Ejemplo 2
+// a1 = ['jellyfish', 'koi', 'caribou', 'owl', 'dolphin']
+// a2 = ['ostrich', 'jaguar', 'deer', 'camel', 'kangaroo']
+
+// returns ['jaguar', 'kangaroo', 'camel', 'ostrich', 'deer']
+// Cada elemento de las matrices comenzará con una letra única, por lo que solo habrá una coincidencia para cada elemento.
+*/
+
+a1 = ['giraffe', 'orangutan', 'impala', 'elephant', 'rhino']
+a2 = ['rattlesnake', 'eagle', 'geko', 'iguana', 'octopus']
+
+const orderArr = (arr1,arr2) =>{
+   
+    return arr1.map((item)=> arr2.find((ite)=>ite[0] === item[0]))
+
+}
+
+console.log(orderArr(a1,a2));
+
+
+/*
+// Escriba la función alternateCase que cambia cada letra de la cadena de superior a inferior y de inferior a superior. Por ejemplo: Hola Mundo -> HOLA MUNDO
+*/
+
+const reverseTolowecase = (str) =>{
+
+    return str.split("").map((item)=>item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase()).join("")
+}
+
+console.log(reverseTolowecase("Hola Mundo"));
+
+
+/*
+/ Supongamos que tenemos un array de objetos que representan productos en un sitio web de compras. Cada objeto tiene las siguientes propiedades: name (nombre del producto), price (precio minimo y maximo del producto), category (categoría del producto) y stock (cantidad de unidades en stock). Queremos implementar una función que filtre los productos por categoría y precio, y que devuelva un nuevo array con los productos que cumplen con los criterios.
+
+const products = [
+  { name: 'Camiseta', price: 30, category: 'ropa', stock: 10 },
+  { name: 'Zapatillas', price: 50, category: 'calzado', stock: 5 },
+  { name: 'Pantalón', price: 30, category: 'ropa', stock: 7 },
+  { name: 'Reloj', price: 100, category: 'accesorios', stock: 3 },
+  { name: 'Gorra', price: 15, category: 'accesorios', stock: 12 }
+];
+
+// Ejemplo de Entrada: filterProducts(products, 'ropa', 25, 35)
+// Ejempĺo de salida : [{ name: 'Pantalón', price: 30, category: 'ropa', stock: 7 }]
+*/
+
+const products = [
+    { name: 'Camiseta', price: 30, category: 'ropa', stock: 10 },
+    { name: 'Zapatillas', price: 50, category: 'calzado', stock: 5 },
+    { name: 'Pantalón', price: 30, category: 'ropa', stock: 7 },
+    { name: 'Reloj', price: 100, category: 'accesorios', stock: 3 },
+    { name: 'Gorra', price: 15, category: 'accesorios', stock: 12 }
+  ];
+
+  const searchProduc = (arrObj,categ,precio) =>{
+    return arrObj.filter((item) => item.category===categ && item.price === precio)
+  }
+
+  console.log(searchProduc(products,"ropa",30));
+  
+
+  /*
+  // Supongamos que tenemos un array de objetos que representan estudiantes universitarios. Cada objeto tiene las siguientes propiedades: name (nombre del estudiante), age (edad del estudiante), major (carrera que estudia el estudiante) y grades (array de calificaciones del estudiante en diferentes materias). Queremos implementar una función que calcule el promedio de calificaciones de todos los estudiantes en una carrera determinada y que devuelva un objeto que contenga el promedio y la cantidad de estudiantes de la carrera.
+
+const students = [
+    { name: 'Juan', age: 21, major: 'ingeniería', grades: [8, 7, 9, 8, 10] },
+    { name: 'María', age: 20, major: 'medicina', grades: [9, 9, 9, 8, 10] },
+    { name: 'Pedro', age: 22, major: 'ingeniería', grades: [6, 7, 7, 8, 6] },
+    { name: 'Ana', age: 19, major: 'arquitectura', grades: [7, 8, 6, 7, 9] },
+    { name: 'Carlos', age: 20, major: 'medicina', grades: [8, 7, 9, 9, 10] }
+  ];
+  // Ejemplo de Entrada: calculateAverageByMajor(students, 'ingeniería')
+  // Ejempĺo de salida : { average: 7.6, numberOfStudents: 2 }
+  */
+
+  const students = [
+    { name: 'Juan', age: 21, major: 'ingeniería', grades: [8, 7, 9, 8, 10] },
+    { name: 'María', age: 20, major: 'medicina', grades: [9, 9, 9, 8, 10] },
+    { name: 'Pedro', age: 22, major: 'ingeniería', grades: [6, 7, 7, 8, 6] },
+    { name: 'Ana', age: 19, major: 'arquitectura', grades: [7, 8, 6, 7, 9] },
+    { name: 'Carlos', age: 20, major: 'medicina', grades: [8, 7, 9, 9, 10] },
+    { name: 'Alejo', age: 21, major: 'ingeniería', grades: [8, 7, 9, 8, 9] }
+  ]
+  const carrera = "ingeniería"
+
+  const extraeStudent = (students,carrer) =>{
+    
+    let averageStudent = students.filter((item) => item.major===carrera)
+    // averageStudent
+    let totalAverge = averageStudent.map((item)=>item.grades).map((item2)=>item2.reduce((acc,ac)=>acc+ac)/item2.length)
+    // totalAverge
+    return {
+            average: totalAverge.reduce((a,b)=>a+b)/totalAverge.length,
+            numberOfStudents: averageStudent.length
+        }
+  }
+
+  console.log(extraeStudent(students,carrera));
+  
+
+
+const strictEqual = (toAlternatingCase) =>{
+
+    return toAlternatingCase.split("").map((item) => item === item.toLowerCase() ? item.toUpperCase() : item.toLowerCase()).join("")
+}
+
+console.log(strictEqual("Hola Mundo"));
+console.log(strictEqual("12345"));
+console.log(strictEqual("1a2b3c4d5e"));
+console.log(strictEqual("String.prototype.toAlternatingCase"));
+
+
+
+
+
+
+const neutralise = (s1, s2) => {
+    // Here be dragons!
+    return s1.split("").map((item, index) => item === s2[index] ? item : 0 ).join("")
+  }
+  console.log(neutralise("--++--", "++--++"));
+  
+
+
+
+  const twiceAsOld = (dadYearsOld, sonYearsOld) => {
+    // your code here
+    return dadYearsOld > sonYearsOld ? Math.abs(dadYearsOld - (sonYearsOld * 2))   : 0 
+  }
+
+  console.log(twiceAsOld(36,7));
+  console.log(twiceAsOld(55,30));
+
+  const abbrevName = (name) =>{
+
+    return name.split(" ").map((item) =>item[0]).join(".").toUpperCase()
+  }
+  console.log(abbrevName("Sam Harris"));
+  
+
+
+  const min = (list) =>{
+    
+    return Math.min(...list)
+}
+console.log(min(([-52, 56, 30, 29, -54, 0, -110])));
+
+
+const max = (list) => {
+    
+    return Math.max(...list)
+}
+
+console.log(max([4,6,2,1,9,63,-134,566]));
+
+
+
+
+
+const sumStr = (a,b) => {
+    
+    return (Number(a) + Number(b)).toString()
+    
+  }
+  console.log(sumStr("4","5"));
+  
+
+
+
+
+  const monkeyCount =(n) => {
+        let result=[]
+        for (let i = 1; i <= n; i++) {
+            
+            result.push(i)
+            
+        }
+        
+        return result
+    
+        
+    }
+
+    console.log(monkeyCount(5));
+
+    console.log(monkeyCount(10));
+
+    
+    
