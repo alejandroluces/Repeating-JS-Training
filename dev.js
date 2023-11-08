@@ -507,4 +507,122 @@ const sumStr = (a,b) => {
     console.log(monkeyCount(10));
 
     
+//     8 kyu
+// elegir un conjunto de primeros elementos
+// 844290% de 1.5075.710 de 9.076darlanmendonca1 problema reportado
+//  javascript
+// Nodo v18.x
+// EMPUJE
+// EMACS
+// Instrucciones
+// Producción
+// Escribe una función para obtener los primeros elementos de una secuencia. Pasar un parámetro n(predeterminado = 1) devolverá los primeros nelementos de la secuencia.
+
+// Si n== 0devuelve una secuencia vacía[]
+
+// Ejemplos
+// var arr = ['a', 'b', 'c', 'd', 'e'];
+// first(arr) //=> ['a'];
+// first(arr, 2) //=> ['a', 'b']
+// first(arr, 3) //=> ['a', 'b', 'c'];
+// first(arr, 0) //=> [];
+const arr = ['a', 'b', 'c', 'd', 'e'];
+
+const first = (arr, n=1) => {
+    return arr.slice(0,n)
+    // return arr.slice(n-n,n)
+  }
+  console.log(first(arr));
+
+  console.log(first(arr,2));
+  console.log(first(arr,3));
+
+  
+
+
+
+
+  const keysAndValues = (data) =>{
+
+    // let value= Object.values(data)
+    // return [Object.keys(data),value]
+        return [Object.keys(data), Object.values(data)]
+  }
+  console.log(keysAndValues({a: 1, b: 2, c: 3}));
+
+
+
+
+//   Multiplication table for number
+//   4058187% of 3,24012,590 of 31,881Dmitry Kudla1 Issue Reported
+//    JavaScript
+//   Node v18.x
+//   VIM
+//   EMACS
+//   Instructions
+//   Output
+//   Past Solutions
+//   Your goal is to return multiplication table for number that is always an integer from 1 to 10.
+  
+//   For example, a multiplication table (string) for number == 5 looks like below:
+  
+//   1 * 5 = 5
+//   2 * 5 = 10
+//   3 * 5 = 15
+//   4 * 5 = 20
+//   5 * 5 = 25
+//   6 * 5 = 30
+//   7 * 5 = 35
+//   8 * 5 = 40
+//   9 * 5 = 45
+//   10 * 5 = 50
+//   P. S. You can use \n in string to jump to the next line.
+  
+//   Note: newlines should be added between rows, but there should be no trailing newline at the end. If you're unsure about the format, look at the sample tests.
+
+  const multiTable = (number) => {
     
+   let numToMultiplicate= []
+    for (let j = 1; j <= 10; j++) {
+        
+        numToMultiplicate.push(j)
+    }
+    return numToMultiplicate.map((item)=> `${item} * ${number} = ${number*item}`).join("\n")
+
+  }
+  console.log(multiTable(5));
+  
+//   '1 * 5 = 5\n2 * 5 = 10\n3 * 5 = 15\n4 * 5 = 20\n5 * 5 = 25\n6 * 5 = 30\n7 * 5 = 35\n8 * 5 = 40\n9 * 5 = 45\n10 * 5 = 50');
+
+
+
+/*
+Merge two sorted arrays into one
+28615393% of 2,96419,830 of 30,218Y.y1 Issue Reported
+ JavaScript
+Node v18.x
+VIM
+EMACS
+Instructions
+Output
+You are given two sorted arrays that both only contain integers. Your task is to find a way to merge them into a single one, sorted in asc order. Complete the function mergeArrays(arr1, arr2), where arr1 and arr2 are the original sorted arrays.
+
+You don't need to worry about validation, since arr1 and arr2 must be arrays with 0 or more Integers. If both arr1 and arr2 are empty, then just return an empty array.
+
+Note: arr1 and arr2 may be sorted in different orders. Also arr1 and arr2 may have same integers. Remove duplicated in the returned result.
+
+Examples (input -> output)
+* [1, 2, 3, 4, 5], [6, 7, 8, 9, 10] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+* [1, 3, 5, 7, 9], [10, 8, 6, 4, 2] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+* [1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12] -> [1, 2, 3, 4, 5, 7, 9, 10, 11, 12]
+
+
+*/
+
+function mergeArrays(arr1, arr2) {
+  return[...arr1,...arr2]
+}
+
+console.log(mergeArrays([1,2,3,4], [5,6,7,8]));

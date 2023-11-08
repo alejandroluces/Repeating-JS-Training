@@ -18,16 +18,19 @@
     const pillars = (numPill, dist, width) => {
         
         const converDisToCm= dist*100
-        converDisToCm
+        
         if(numPill === 2){
             return converDisToCm
-        } if (numPill>2){
+        } else if (numPill>2){
             return (numPill-1)*converDisToCm + ((numPill-2)*width)
         } else{
             return 0
         }
 
       }
+    //   const pillars = (numPill, dist, width) => {
+    //     return numPill > 1 ? (numPill-1)*dist*100 + (numPill-2) * width : 0
+    //     }
 
       console.log(pillars(11, 15, 30));
       console.log(pillars(1, 10, 10));
