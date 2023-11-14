@@ -13,19 +13,32 @@ const sortAnimal = (animals) =>{
     // patas
     // let letras = animals.sort((a,b) => a.name>b.name ? 1 : -1)
     // return animals.map((item) => item).sort((a,b) => a.name && a.numberOfLegs > b.name && b.numberOfLegs ? 1 : -1  ) 
-    for (let i = 0; i < animals.length; i++) {
-        if(!animals.numberOfLegs[i]){
-            return animals.numberOfLegs[i]
-        }else{
-            return animals.sort((a,b) => a.name>b.name ? 1 : -1)
+    // for (let i = 0; i < animals.length; i++) {
+    //     if(!animals.numberOfLegs[i]){
+    //         return animals.numberOfLegs[i]
+    //     }else{
+    //         return animals.sort((a,b) => a.name>b.name ? 1 : -1)
             
-        }
+    //     }
         
+    // }
+}
+    const ordenarAnimales = (arr) => {
+        return arr.sort((a,b) => {
+            if (a.numberOfLegs === b.numberOfLegs) {
+                return a.name.localeCompare(b.name)
+            }
+            return a.numberOfLegs - b.numberOfLegs
+        })
     }
+    console.log(ordenarAnimales(animals))
     
     // return animals.map((item) => item).sort((a,b) => a.numberOfLegs< b.numberOfLegs ? 1 : -1)&& animals.sort((a,b) => a.name>b.name ? 1 : -1)
-}
 
-console.log(sortAnimal(animals));
+
+
+
+
+
 
 
