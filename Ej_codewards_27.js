@@ -16,15 +16,17 @@ Note: The sum of an empty array is zero.
 
 arr2bin([1,2]) == '11'
 arr2bin([1,2,'a']) == false
+https://www.codewars.com/kata/57642a90dee2da8dd3000161/train/javascript
 */
 
 function arr2bin(arr){
     //GET STARTED
-     if(arr.some((item) => typeof(item)!== "number")){
-        return false
-     }else{
-        return arr.reduce((a,b) => a+b,0).toString(2)
-     }
+  return arr.filter((item) => typeof(item)=== "number").reduce((a,b) => a+b,0).toString(2)
+   //   if(arr.some((item) => typeof(item)!== "number")){
+   //      return
+   //   }else{
+   //      return arr.reduce((a,b) => a+b,0).toString(2)
+   //   }
 }
 
 
@@ -32,6 +34,8 @@ console.log(arr2bin([1,2]));
 console.log(arr2bin([1,2,3,4,5]));
 console.log(arr2bin([1,2,'a']));
 console.log(arr2bin([1,10,100,1000]));
+console.log(arr2bin([true,true,false,15]));
+
 
 
 
