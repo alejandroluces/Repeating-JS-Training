@@ -22,13 +22,4 @@ console.log(addExtra([1,2]));
 
 
 
-function isDigit(s) {
-    let result = [...s].every((item) => Number(item))
-    return Math.abs(result)
-  }
-
-  console.log(isDigit("-234.4"));
-  
-
-
 
