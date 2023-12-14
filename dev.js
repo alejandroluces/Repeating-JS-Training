@@ -623,3 +623,240 @@ function mergeArrays(arr1, arr2) {
 }
 
 console.log(mergeArrays([1,2,3,4], [5,6,7,8]));
+
+
+
+/*
+Ejercicio 8: Rotar a la derecha
+Enunciado: Escribe una función que rote a la derecha los elementos de un array dado un número específico de veces.
+const array = [1, 2, 3, 4, 5];
+const veces = 2;
+console.log(rotarDerecha(array, veces)); // Salida esperada: [4, 5, 1, 2, 3]
+*/
+
+const arr1= [1, 2, 3, 4, 5]
+const veces = 2;
+
+const rotRigh = (arr) =>{
+
+  return [...arr.splice(-veces),...arr.splice(arr1.length-veces-1)]
+
+}
+
+console.log(rotRigh(arr1));
+
+
+/*Ejercicio 9: Calcular promedio
+Enunciado: Escribe una función que calcule el promedio de un array de números.
+const array = [10, 20, 30, 40, 50];
+console.log(calcularPromedio(array)); // Salida esperada: 30
+
+*/
+const arrayAverage = [10, 20, 30, 40, 50]
+const claculateAverage = (arr) =>{
+
+  return arr.reduce((acc,ac) => acc+ac,0) / arr.length
+
+}
+
+console.log(claculateAverage(arrayAverage));
+
+
+/*
+
+*/
+
+const stringVer = "Boat Rudder Mast Boat Hull Water Fire Boat Deck Hull Fire Propeller Deck Fire Deck Boat Mast"
+function fireFight(s){
+  return s.replace("Fire","~~")
+}
+
+console.log(fireFight(stringVer));
+;
+
+
+
+
+// Escriba una función insert_dash(num) / insertDash(num) / InsertDash(int num) 
+// que insertará guiones ('-') entre cada dos dígitos impares en num. 
+// Por ejemplo: si el número es 454793, la salida debería ser 4547-9-3.
+
+// Tenga en cuenta que el número siempre será no negativo (>= 0).
+// Entradas
+const numbers=454793
+
+const numbersAddguion = (num) =>{
+  let numb=+numbers
+  
+  for (let i = 0; i < numb.length; i++) {
+      if (numb%2!==0) {
+        return numb
+      }
+    
+  } 
+}
+
+console.log(numbersAddguion(numbers));
+
+
+/*
+Crea un objeto que represente a una persona, con las propiedades nombre, edad, género y ocupación. Luego, crea una función que reciba un objeto persona y devuelva una cadena con una presentación de la misma, por ejemplo: “Hola, me llamo Ana, tengo 25 años, soy mujer y trabajo como programadora”.
+Entrada: {nombre: “Pedro”, edad: 32, género: “hombre”, ocupación: “profesor”}
+Salida: “Hola, me llamo Pedro, tengo 32 años, soy hombre y trabajo como profesor”
+*/
+
+const objPeople = {nombre: "Pedro", edad: 32, género: "hombre", ocupación: "profesor"}
+
+const createOr = (obj) => {
+
+  return [obj].map((item) => `Hola, me llamo ${item.nombre}, tengo ${item.edad} años, soy ${item.nombre} y trabajo como ${item.ocupación}`)
+}
+
+console.log(createOr(objPeople));
+
+
+/*
+Crea un array con los números del 1 al 20. Luego, crea una función que reciba un array y devuelva un nuevo array con los elementos del array original elevados al cuadrado. Si el array está vacío, la función debe devolver un array vacío.
+Entrada: [2, 4, 6, 8, 10]
+Salida: [4, 16, 36, 64, 100]
+*/
+
+const numbers1 = [2, 4, 6, 8, 10]
+
+const numforTwoo = (num) => {
+
+  return num.map((item) => item**2)
+}
+
+console.log(numforTwoo(numbers1));
+
+
+/*
+Crea un array con los números del 1 al 100. Luego, crea una función que reciba un array y un número n, y devuelva un nuevo array con los elementos del array original que sean múltiplos de n. Si el array está vacío o n no es un número, la función debe devolver un array vacío.
+Entrada: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3
+Salida: [3, 6, 9]
+*/
+const numbers3 =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const multiplo = 3 
+
+const searchMultiplo = (arr) =>{
+  return arr.filter((item) => item%multiplo ===0 )
+}
+
+console.log(searchMultiplo(numbers3,multiplo));
+
+
+/*
+Ejercicio 10: Verificar palíndromo
+// Enunciado: Escribe una función que verifique si un array de caracteres forma un palíndromo.
+
+const arrayPalindrome = ['a', 'b', 'c', 'b', 'a'];
+*/
+
+const arrLetter = ['A', 'b', 'c', 'b', 'a']
+
+const validatePalindromo = (arr) => {
+
+  return arr.join("").toLowerCase() === arr.reverse().join("").toLowerCase()
+}
+
+console.log(validatePalindromo(arrLetter));
+/*
+Ejercicio 4: Números Negativos
+Enunciado: Escribe una función que cuente la cantidad de números negativos en un array.const array = [3, -5, 1, -2, 7, -8];
+const array = [3, -5, 1, -2, 7, -8];
+console.log(contarNegativos(array)); // Salida esperada: 3
+*/
+
+const array9 = [3, -5, 1, -2, 7, -8];
+
+const countNumNegative = (num) => {
+
+  return num.filter((item) => item<0).length
+
+}
+
+console.log(countNumNegative(array9));
+
+
+/*
+Ejercicio 144
+Encontrar la cadena más larga en un array de cadenas de texto y mostrar su índice:
+- Entrada: ["uva", "plátano", "sandía", "kiwi"]
+- Salida: {cadenaMasLarga: "plátano", indice: 2}
+*/
+
+const fruit = ["uva", "plátano", "sandía", "kiwi"]
+
+const findFruitLength = (str) => {
+
+  let findFruit = str.reduce((a,b) => a.length > b.length ? a : b )
+  findFruit
+  let indexFruit = str.indexOf(findFruit)
+  indexFruit
+
+  return {
+    cadenaMasLarga: findFruit,
+    indice: indexFruit
+  }
+}
+
+console.log(findFruitLength(fruit));
+
+
+/*
+Ejercicio 152
+Calcular el promedio de cada columna en una matriz de números y mostrar los resultados en un nuevo array:
+
+Entrada: [[2, 3, 4], [1, 2, 3], [5, 6, 7]]
+Salida: [2.67, 3.67, 4.67]
+*/
+
+const arrnumbers4 = [[2, 3, 4], [1, 2, 3], [5, 6, 7]]
+
+const calculateAverage = (arr) =>{
+
+  return arr.map((item) => item.reduce((acc, ac) => acc + ac,0)/item.length)
+
+}
+
+console.log(calculateAverage(arrnumbers4));
+
+
+/*
+Su trabajo es devolver una única matriz que tenga primero los números ordenados en orden ascendente, seguidos de las cadenas ordenadas en orden alfabético. Los valores deben mantener su tipo original.
+// Tenga en cuenta que los números escritos como cadenas son cadenas y deben ordenarse con las otras cadenas. Entrada: ["Banana", "Orange", "Apple", "Mango", 0, 2, 2]. Salida: [ 0, 2, 2, 'Apple', 'Banana', 'Mango', 'Orange' ]
+
+*/
+
+
+const arrOrder =  ["Banana", "Orange", "Apple", "Mango", 0, 2,10,12,8,22,1,90,55,"c"]
+
+const orderArr2 = (arr) => {
+
+  let numbersOrder = arr.filter((item)=> typeof(item)=== "number").sort((a,b) => a-b)
+  let wordsOrder = arr.filter((item)=> typeof(item)=== "string").sort((a,b) => a.localeCompare(b))
+  
+  return[...numbersOrder,...wordsOrder]
+}
+
+console.log(orderArr2(arrOrder));
+
+
+/*
+Cree un método que tome como entrada un nombre, ciudad y estado para dar la bienvenida a una persona. Tenga en cuenta que nameserá una matriz que constará de uno o más valores que deben unirse con un espacio entre cada uno, y la longitud de la namematriz en los casos de prueba variará.
+
+Ejemplo:
+
+['John', 'Smith'], 'Phoenix', 'Arizona'
+Este ejemplo devolverá la cadenaHello, John Smith! Welcome to Phoenix, Arizona!
+*/
+
+const sayHello = ( name, city, state ) => {
+  let merchCtyState = [city,state]
+  merchCtyState
+  return `Hello, ${name.join(" ")}! Welcome to ${merchCtyState.join(", ")}!`
+
+}
+
+console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona'));
